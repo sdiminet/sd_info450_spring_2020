@@ -16,7 +16,7 @@ int main()
         cin >> myNumber;
     }
 
-    /* If number entered == 1 or == 0 is not prime.
+    /* If number entered == 1, then it is not prime.
         Otherwise, using for loop, the number will be divided up until itself - 1 and check the remainder.
         If the remainder is 0, that means the number is not prime because it can be devided by another number. */
 
