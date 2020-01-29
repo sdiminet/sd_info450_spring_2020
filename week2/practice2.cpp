@@ -17,12 +17,12 @@ int main()
     }
 
     /* If number entered == 1, then it is not prime.
-        Otherwise, using for loop, the number will be divided up until itself - 1 and check the remainder.
+        Otherwise, using for loop, the number will be divided up until n - 1 and check the remainder.
         If the remainder is 0, that means the number is not prime because it can be divided by another number. */
 
     while (myNumber >= 1){
 
-        // had to reset it to 0 every time the loop restarted to get accurate results.
+        // had to set it to 0 every time the loop restarted to get accurate results.
         notPrime = 0;
 
         if (myNumber == 0){
