@@ -24,5 +24,13 @@ char  get_user_input(){
     return letter;
 }
 void to_upper_case(char &letter){
-   letter = letter-32;
+    if(letter == 'A' || letter == 'B' || letter == 'C' || letter == 'D' || letter == 'F')
+    {
+        return;
+    }
+    else 
+    {
+        letter = letter-32;
+    }
+
 }
