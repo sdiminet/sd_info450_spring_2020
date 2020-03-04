@@ -8,13 +8,13 @@ string reverse(string *s1);
 int main ()
 {
     string user_input;
-    string result;
 
     cout << "Please enter a string: " << endl;
     getline (cin,user_input);
-    result = reverse(&user_input);
+    cout << "String: " << user_input << endl;
+    reverse(&user_input);
 
-    cout << "Reversed: " << result << endl;
+    cout << "Reversed: " << user_input << endl;
 
     return 0;
 }
@@ -28,6 +28,5 @@ int main ()
         s1[x] = s1[s1->length()-x-1];
         s1[s1->length()-x-1]=temp;
     }
-
-    return s1;
+    return *s1;
 }
