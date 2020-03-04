@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <string>
 #include <vector>
 using namespace std;
@@ -8,25 +9,38 @@ string reverse(string *s1);
 int main ()
 {
     string user_input;
+    
+    while (true)
+    {
+        cout << "Please enter a string: ";
+        getline (cin,user_input);
+        if (user_input =="\0")
+        {
+            break;
+        }
+        cout << "Reversed string: " << reverse(&user_input) << endl;
+    }
 
-    cout << "Please enter a string: " << endl;
-    getline (cin,user_input);
-    cout << "String: " << user_input << endl;
-    reverse(&user_input);
-
-    cout << "Reversed: " << user_input << endl;
+    cout << "The Program is Terminated!" << endl;
 
     return 0;
 }
 
  string reverse(string *s1)
 {
-    string temp;
-    for (int x=0; x < s1->length() / 2; x++)
+    char temp;
+    string myString = *s1;
+    int x=0;
+    int j = myString.length()-1;
+
+    while (x<j)
     {
-        temp = s1[x];
-        s1[x] = s1[s1->length()-x-1];
-        s1[s1->length()-x-1]=temp;
+        temp = myString[x];
+        myString[x]=myString[j];
+        myString[j]= temp; 
+
+        x++;
+        j--;
     }
-    return *s1;
+    return myString;
 }
