@@ -17,7 +17,7 @@ private:
 public:
     circle(int radius) : radius(radius) {}
     int get_perimeter_length() { return 2 * PI * radius; }
-    int get_area() { return PI * radius * radius; }
+    int get_area() { return PI * pow(radius,2); }
 };
 
 class rectangle : public shape {
