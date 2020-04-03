@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -12,7 +13,7 @@ public:
 
 class circle : public shape {
 private:
-    double radius;
+    int radius;
 public:
     circle(int radius) : radius(radius) {}
     int get_perimeter_length() { return 2 * PI * radius; }
@@ -35,7 +36,7 @@ private:
 public:
     square(int side) : side(side) {}
     int get_perimeter_length() { return 4 * side; }
-    int get_area() { return side * side; }
+    int get_area() { return pow(side,2); }
 };
 
 int main() {
