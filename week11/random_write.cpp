@@ -17,7 +17,7 @@ int main()
 
         for (int i=0; i < 1000; i++)
         {
-            int myNumbers = -10000 + rand () % (10000 - (-10000) +1);
+            int myNumbers = -9999 + rand () % (9999 - (-9999) +1);
             out << myNumbers << endl;
         }
     }
