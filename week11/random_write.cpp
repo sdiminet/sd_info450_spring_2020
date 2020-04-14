@@ -13,6 +13,7 @@ int main()
     }
     else 
     {
+        srand(time(0));
         for (int i=0; i < 1000; i++)
         {
             int max_number = 9999;
