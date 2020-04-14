@@ -13,13 +13,11 @@ int main()
     }
     else 
     {
-        srand(time(0));
-
         for (int i=0; i < 1000; i++)
         {
             int max_number = 9999;
             int min_number = -9999;
-            int myNumbers = (rand()%(max_number + 1 - min_number)) + (-9999);
+            int myNumbers = (rand()%(max_number + 1 - min_number)) + min_number;
             out << myNumbers << endl;
         }
     }
