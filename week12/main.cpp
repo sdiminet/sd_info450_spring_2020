@@ -1,11 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
 #include "sorter.h"
-#include "sorter.cpp"
-
-using namespace std;
 
 int main(){
   int place_holder;

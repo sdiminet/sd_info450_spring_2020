@@ -1,5 +1,4 @@
-#include "main.cpp"
-
+#include "sorter.h"
 
 void sort_vector(vector<int> *v){
   int i, j;
