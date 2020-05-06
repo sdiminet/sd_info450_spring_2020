@@ -5,7 +5,7 @@ main.o: main.cpp
 	g++ -c main.cpp
 
 account.o: account.cpp account.h
-	g++ -c amount.cpp
+	g++ -c account.cpp
 
 checking.o: checking.cpp checking.h
 	g++ -c checking.cpp
