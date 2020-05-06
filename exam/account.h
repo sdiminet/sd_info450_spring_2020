@@ -1,4 +1,6 @@
 #include<iostream>
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
 
 using namespace std;
 class Account 
@@ -24,3 +26,4 @@ class Account
         double makeDeposit(double amount);
         void display();
 };
+#endif
