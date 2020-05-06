@@ -40,7 +40,6 @@ void Checking::display()
 {
     cout << "Name: " << getName() << " Balance: " << getBalance() << endl;
     cout << "Account Check Register: " << endl;
-    cout << " " << endl;
 
     for(int i=0; i<10; i++)
     {
@@ -51,6 +50,6 @@ void Checking::display()
     cout << "Account Deposits: " << endl;
     for(int i=0; i<10;i++)
     {
-        cout << i+1 << ":" << last10deposits[i] << endl;
+        cout << i+1 << ": " << last10deposits[i] << endl;
     }
 }

@@ -24,12 +24,11 @@ void Savings::display()
 {
     cout << "Name: " << getName() << " Balance: " << getBalance() << endl;
     cout << "Account Withdrawal: " << endl;
-    cout << " " << endl;
     for (int i=0; i<10; i++)
     {
         cout << i+1 << ": " << last10withdraws[i] << endl;
     }
-
+    cout << " " << endl;
     cout << "Account Deposits: " << endl;
     for(int i=0; i<10; i++)
     {
