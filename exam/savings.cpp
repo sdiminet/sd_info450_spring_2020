@@ -2,6 +2,10 @@
 
 using namespace std;
 
+Savings::Savings():Account()
+{
+
+}
 Savings::Savings(string name, long taxID, double balance) : Account(name, taxID, balance)
 {
 
@@ -9,32 +13,10 @@ Savings::Savings(string name, long taxID, double balance) : Account(name, taxID,
 
 void Savings::doWithdraw(double amount)
 {
-    if(amount > getBalance())
+    if(amount > getBalance()) cout << "Insufficient funds!!!" << endl;
+    else
     {
-        cout << "Insufficient Balance!" << endl;
-    }
-    else 
-    {
-        setBalance(getBalance()-amount);
-        numwithdraws++;
-        if(numwithdraws < 100)
-        {
-            withdraw[numwithdraws] = getBalance();
-        }
-    }
-}
-
-void Savings::doDeposit(double amount)
-{
-    if(amount <=0) cout << "Amount is invalid!" <<endl;
-    else 
-    {
-        setBalance(getBalance() + amount);
-        numdeposits++;
-        if(numdeposits < 100)
-        {
-            deposit[numdeposits] = getBalance();
-        }
+        makeDeposit(-amount);
     }
 }
 
@@ -43,14 +25,14 @@ void Savings::display()
     cout << "Name: " << getName() << " Balance: " << getBalance() << endl;
     cout << "Account Withdrawal: " << endl;
     cout << " " << endl;
-    for (int i=0; i<numwithdraws; i++)
+    for (int i=0; i<10; i++)
     {
-        cout << i+1 << ": " << withdraw[i] << endl;
+        cout << i+1 << ": " << last10withdraws[i] << endl;
     }
 
     cout << "Account Deposits: " << endl;
-    for(int i=0; i<numdeposits; i++)
+    for(int i=0; i<10; i++)
     {
-        cout << i+1 << ": " << deposit[i] << endl;
+        cout << i+1 << ": " << last10deposits[i] << endl;
     }
 }

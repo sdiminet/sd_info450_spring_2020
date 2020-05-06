@@ -3,14 +3,20 @@
 using namespace std;
 
 
-Checking::Checking()
+Checking::Checking():Account()
 {
-
+    for(int i=0; i<10; i++)
+    {
+        last10checks[i]=0;
+    }
 }
 
 Checking::Checking(string name, long taxID, double balance) : Account(name, taxID, balance)
 {
-
+    for(int i=0;i<10;i++)
+    {
+        last10checks[i] = -1;
+    }
 }
 
 void Checking::writeCheck(int checknum, double amount)
@@ -21,13 +27,12 @@ void Checking::writeCheck(int checknum, double amount)
     }
     else 
     {
-        setBalance(getBalance() - amount);
-        numwithdraws++;
-        if(numwithdraws < 100)
+        for(int i=9;i>=1;i--)
         {
-            withdraw[numwithdraws] = getBalance();
+            last10checks[i] = last10checks[i-1];
         }
-        last10checks[numdeposits] = checknum;
+        last10checks[0] = amount;
+        makeDeposit(-amount);;
     }
 }
 
@@ -37,15 +42,15 @@ void Checking::display()
     cout << "Account Check Register: " << endl;
     cout << " " << endl;
 
-    for(int i=0; i<numdeposits; i++)
+    for(int i=0; i<10; i++)
     {
-        cout << "Check Number: " << last10checks[i] << " Amount: " << withdraw[i] << endl;
+        cout << "Check Number: " << last10checks[i] << " Amount: " << last10withdraws[i] << endl;
     }
 
     cout<< " " << endl;
     cout << "Account Deposits: " << endl;
-    for(int i=0; i<numdeposits;i++)
+    for(int i=0; i<10;i++)
     {
-        cout << i+1 << ":" << deposit[i] << endl;
+        cout << i+1 << ":" << last10deposits[i] << endl;
     }
 }

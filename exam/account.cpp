@@ -47,12 +47,28 @@ double Account::getBalance()
     return balance;
 }
 
-double Account::makeDeposit(double amount)
+void Account::makeDeposit(double amount)
 {
-    balance += amount;
-    numdeposits++;
-    if (numdeposits<100) deposit[numdeposits] = balance;
-    return balance;
+    if (amount > 0)
+    {
+        balance += amount;
+        for(int i=9;i>=1;i--)
+        {
+            last10deposits[i] = last10deposits[i-1];
+        }
+        last10deposits[0] = amount;
+        numdeposits += 1;
+    }
+        else if(amount<0)
+        {
+            balance += amount;
+            for(int i=9;i>=1;i--)
+            {
+                last10withdraws[i] = last10withdraws[i-1];
+            }
+            last10withdraws[0] = amount;
+            numwithdraws += 1;
+    }
 }
 
 void Account::display()

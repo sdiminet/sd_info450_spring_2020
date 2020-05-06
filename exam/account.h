@@ -12,8 +12,8 @@ class Account
     protected:
         int numdeposits;
         int numwithdraws;
-        double deposit [100];
-        double withdraw [100];
+        double last10deposits [10];
+        double last10withdraws [10];
     public:
         Account();
         Account (string name, long taxID, double balance);
@@ -23,7 +23,7 @@ class Account
         string getName();
         long getTaxID();
         double getBalance();
-        double makeDeposit(double amount);
+        void makeDeposit(double amount);
         void display();
 };
 #endif

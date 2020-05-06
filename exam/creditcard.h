@@ -4,7 +4,6 @@ class CreditCard : public Account
 {
     private:
         long cardNumber;
-        int index;
         string last10charges[10];
     public:
         CreditCard();

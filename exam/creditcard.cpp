@@ -1,13 +1,19 @@
 #include "creditcard.h"
 
-CreditCard::CreditCard()
+CreditCard::CreditCard() : Account ()
 {
-    index = 0;
+    for(int i=0;i<10;i++)
+    {
+        last10charges[i] = "";
+    }
 }
 
 CreditCard::CreditCard(string name, long taxID, double balance) : Account (name, taxID, balance)
 {
-    index=0;
+    for(int i=0;i<10;i++)
+    {
+        last10charges[i] = "";
+    }
 }
 
 void CreditCard::doCharge(string name, double amount)
@@ -15,16 +21,15 @@ void CreditCard::doCharge(string name, double amount)
     if(amount > getBalance()) cout << "Insufficient Balance!";
     else 
     {
-        setBalance(getBalance()-amount);
-        numwithdraws++;
-        if(numwithdraws < 100)
+        for(int i=9;i>=1;i--)
         {
-            withdraw[numwithdraws] = getBalance();
+            last10charges[i] = last10charges[i-1];
         }
-        last10charges[index] = name;
-        index++;
+        last10charges[0] = name;
+        makeDeposit(-amount);
     }
 }
+
 
 void CreditCard::makePayment(double amount)
 {
@@ -35,7 +40,7 @@ void CreditCard::makePayment(double amount)
         numdeposits++;
         if(numdeposits < 100)
         {
-            deposit[numdeposits] = getBalance();
+            makeDeposit(amount);
         }
     }
 }
@@ -45,14 +50,14 @@ void CreditCard::display()
     cout << "Name: " << getName() << " Balance: " << getBalance() << endl;
     cout << "Account Charges: " << endl;
     cout << " " << endl;
-    for(int i=0; i<index; i++)
+    for(int i=0; i<10; i++)
     {
-        cout << i+1 << ": " << last10charges[index] << " Amount: " << withdraw[i] << endl;
+        cout << i+1 << ": " << last10charges[i] << " Amount: " << last10withdraws[i] << endl;
     }
 
     cout << "Account Deposits: " << endl;
-    for(int i=0; i<numdeposits; i++)
+    for(int i=0; i<10; i++)
     {
-        cout << i+1 << ": " << deposit[i] << endl;
+        cout << i+1 << ": " << last10deposits[i] << endl;
     }
 }

@@ -6,6 +6,5 @@ class Savings : public Account
         Savings();
         Savings(string name, long taxID, double balance);
         void doWithdraw(double amount);
-        void doDeposit(double amount);
         void display();
 };
